@@ -8,13 +8,14 @@ export const front_getOneItem = async (
   let conn
   try {
     conn = await pool.getConnection()
-    
+
     const frontEndItem = await conn.query(
       `SELECT * FROM links WHERE Id=${req.params.id}`
     )
 
     if (frontEndItem.length === 0) {
       res.sendStatus(404)
+      return conn.end()
     }
 
     res.json(frontEndItem)
@@ -42,6 +43,7 @@ export const front_getAllItems = async (
 
     if (frontEndItems.length === 0) {
       res.sendStatus(404)
+      return conn.end()
     }
 
     res.json(frontEndItems)
