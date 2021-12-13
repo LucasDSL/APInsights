@@ -1,7 +1,7 @@
 {
   "name": "inforjr_insight_backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/server.ts",
   "repository": "https://github.com/LucasDSL/Infojr-insight-backend.git",
   "author": "Lucas Lima <67974468+LucasDSL@users.noreply.github.com>",
   "license": "MIT",
