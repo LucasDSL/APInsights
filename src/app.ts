@@ -6,6 +6,7 @@ import BackendRoutes from "./Routes/BackendRoutes"
 import PostNewItemRoute from "./Routes/PostNewItemRoute"
 import MobileRouter from "./Routes/MobileRoutes"
 import getAllItems from "./Routes/GetAllItemsRoute"
+import DesignRoutes from "./Routes/DesignRoutes"
 
 const app = express()
 app.use(express.json())
@@ -16,5 +17,6 @@ app.use(BackendRoutes)
 app.use(MobileRouter)
 app.use(getAllItems)
 app.use(PostNewItemRoute)
+app.use(DesignRoutes)
 
 export default app
