@@ -1,5 +1,5 @@
 import express from "express"
-import { pool } from "../database/database"
+import { pool } from "../database/dbPool"
 
 export const front_getOneItem = async (
   req: express.Request,
@@ -10,7 +10,7 @@ export const front_getOneItem = async (
     conn = await pool.getConnection()
 
     const frontEndItem = await conn.query(
-      `SELECT * FROM links WHERE Id=${req.params.id}`
+      `SELECT * FROM links WHERE Id=${req.params.id} && Category='front'`
     )
 
     if (frontEndItem.length === 0) {
@@ -50,32 +50,6 @@ export const front_getAllItems = async (
     res.sendStatus(200)
   } catch (err) {
     return res.sendStatus(400).json({ error: err })
-  } finally {
-    if (conn) {
-      return conn.end()
-    }
-  }
-}
-
-export const front_addNewItem = async (
-  req: express.Request,
-  res: express.Response
-) => {
-  let conn
-  const { category, imageLink, description, link } = req.body
-  try {
-    conn = await pool.getConnection()
-
-    const resultFromInsertion = await conn.query(
-      `INSERT INTO links (Category, Image_Link, Description, Link)
-      VALUES (?, ?, ?, ?)`,
-      [category, imageLink, description, link]
-    )
-
-    res.json(resultFromInsertion)
-    res.sendStatus(200)
-  } catch (err) {
-    res.sendStatus(400).json({ error: err })
   } finally {
     if (conn) {
       return conn.end()
