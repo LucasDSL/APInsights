@@ -5,9 +5,7 @@ import {
 } from "../Controllers/Frontend.controller"
 
 const router = express.Router()
-
-const getOneFrontend = router.get("/insight/front-end/:id", front_getOneItem)
-
-const getAllFrontend = router.get("/insight/front-end", front_getAllItems)
+router.get("/insight/front-end/:id", front_getOneItem)
+router.get("/insight/front-end", front_getAllItems)
 
 export default router

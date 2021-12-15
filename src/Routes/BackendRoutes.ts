@@ -5,9 +5,7 @@ import {
 } from "../Controllers/Backend.controller"
 
 const router = express.Router()
-
-const getOneBackend = router.get("/insight/back-end/:id", back_getOneItem)
-
-const getAllBackend = router.get("/insight/back-end", back_getAllItems)
+router.get("/insight/back-end/:id", back_getOneItem)
+router.get("/insight/back-end", back_getAllItems)
 
 export default router
