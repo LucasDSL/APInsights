@@ -1,4 +1,4 @@
-import app from "./app"
+import app from "./Configs/app"
 import * as dontenv from "dotenv"
 dontenv.config()
 

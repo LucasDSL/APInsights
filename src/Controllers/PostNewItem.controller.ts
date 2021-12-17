@@ -1,5 +1,5 @@
 import express from "express"
-import { pool } from "../database/dbPool"
+import { pool } from "../Infrastructure/dbPool"
 
 export const addNewItem = async (
   req: express.Request,
