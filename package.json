@@ -6,7 +6,7 @@
   "author": "Lucas Lima <67974468+LucasDSL@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node server.ts",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon src/server.ts"
   },
   "dependencies": {
