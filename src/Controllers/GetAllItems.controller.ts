@@ -5,7 +5,6 @@ export const getAllItems = async (
   req: express.Request,
   res: express.Response
 ) => {
-  res.send("<h1>Tudo certo</h1>")
   let conn
   try {
     conn = await pool.getConnection()
