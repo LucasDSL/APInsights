@@ -1,7 +1,7 @@
 import { pool } from "./dbPool"
 
 export default async function queryExecution(query: string, params = "") {
-  let conn, result 
+  let conn, result
   try {
     conn = await pool.getConnection()
     result = await conn.query(query, params)
