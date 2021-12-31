@@ -6,7 +6,7 @@ import BackendRoutes from "../Routes/Backend.routes"
 import PostNewItemRoute from "../Routes/PostNewItemRoute"
 import MobileRouter from "../Routes/MobileRoutes"
 import getAllItems from "../Routes/GetAllItemsRoute"
-import DesignRoutes from "../Routes/DesignRoutes"
+import DesignRoutes from "../Routes/Design.routes"
 import MixRoutes from "../Routes/MixRoutes"
 
 const app = express()
