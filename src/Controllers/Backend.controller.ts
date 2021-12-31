@@ -1,5 +1,5 @@
 import express from "express"
-import Backend from "../Repositories/Backend"
+import Backend from "../Repositories/Backend.repository"
 
 export default async function backendController(
   req: express.Request,
