@@ -17,8 +17,9 @@ export async function getGeneralController(
     return
   } finally {
     if (results) {
-      return results
+      res.send(results)
     }
+    return 
   }
 }
 
