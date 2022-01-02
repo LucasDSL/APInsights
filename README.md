@@ -50,7 +50,7 @@ GET https://apinsights.herokuapp.com/insight
 ```
 
 Return all items within database, not organized by category but by id, on a increasing order.
-
+<img src="./example.png" >
 ```txt
 POST https://apinsights.herokuapp.com/insight
 ```
