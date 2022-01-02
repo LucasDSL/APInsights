@@ -34,8 +34,8 @@ export async function postGeneralController(
   arrayItems.forEach(Item => {
     if (typeof Item !== typeof "") {
       res.status(400).send({
-        error: `Not all items within body are strings or the name of one or 
-          more properties are written incorretly.`,
+        error:
+          "Not all items within body are strings or the name of one or more properties are written incorretly.",
       })
       return
     }
