@@ -1,13 +1,12 @@
 import express from "express"
 import cors from "cors"
 
-import FrontendRoutes from "../Routes/FrontendRoutes"
+import FrontendRoutes from "../Routes/Frontend.routes"
 import BackendRoutes from "../Routes/Backend.routes"
-import PostNewItemRoute from "../Routes/PostNewItemRoute"
-import MobileRouter from "../Routes/MobileRoutes"
-import getAllItems from "../Routes/GetAllItemsRoute"
+import MobileRouter from "../Routes/Mobile.routes"
 import DesignRoutes from "../Routes/Design.routes"
-import MixRoutes from "../Routes/MixRoutes"
+import MixRoutes from "../Routes/Mix.routes"
+import GeneralRoutes from "../Routes/General.routes"
 
 const app = express()
 app.use(express.json())
@@ -16,8 +15,7 @@ app.use(cors())
 app.use(FrontendRoutes)
 app.use(BackendRoutes)
 app.use(MobileRouter)
-app.use(getAllItems)
-app.use(PostNewItemRoute)
+app.use(GeneralRoutes)
 app.use(DesignRoutes)
 app.use(MixRoutes)
 
