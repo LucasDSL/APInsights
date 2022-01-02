@@ -1,6 +1,9 @@
 import { pool } from "./dbPool"
 
-export default async function queryExecution(query: string, params = "") {
+export default async function queryExecution(
+  query: string,
+  params: string | string[] = ""
+) {
   let conn, result
   try {
     conn = await pool.getConnection()
