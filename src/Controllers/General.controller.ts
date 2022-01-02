@@ -8,7 +8,7 @@ export async function getGeneralController(
   let results: Object[] = []
   try {
     results = await GeneralReposiroty.getAllitems()
-    if (results.length !== 0) {
+    if (results.length === 0) {
       res.status(404).send({ error: "No items found, try POSTing a new item!" })
       return
     }
