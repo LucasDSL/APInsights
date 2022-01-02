@@ -8,7 +8,7 @@ class MobileRepository {
 
   getOneItem(id: string) {
     const sql = `SELECT * FROM links WHERE Category='mobile' && id=?`
-    return queries(id)
+    return queries(sql, id)
   }
 }
 
