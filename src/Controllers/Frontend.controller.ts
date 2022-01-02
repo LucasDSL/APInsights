@@ -1,58 +1,29 @@
 import express from "express"
-import { pool } from "../Infrastructure/dbPool"
+import FrontendRepository from "../Repositories/Frontend.repository"
 
-export const front_getOneItem = async (
+export default async function frontendController(
   req: express.Request,
   res: express.Response
-) => {
-  let conn
+) {
+  let results: Object[] = []
   try {
-    conn = await pool.getConnection()
-
-    const frontEndItem = await conn.query(
-      `SELECT * FROM links WHERE Id=${req.params.id} && Category='front'`
-    )
-
-    if (frontEndItem.length === 0) {
-      res.sendStatus(404)
-      return conn.end()
+    const { id } = req.params
+    if (id) {
+      results = await FrontendRepository.getOneItem(id)
+    } else {
+      results = await FrontendRepository.getAllItems()
     }
-
-    res.json(frontEndItem)
-    res.sendStatus(200)
-  } catch (err) {
-    return res.sendStatus(400).json({ error: err })
+    if (results.length === 0) {
+      res.status(404).send({ error: "No items found." })
+      return
+    }
+  } catch (error) {
+    res.status(400).send(error)
+    return
   } finally {
-    if (conn) {
-      return conn.end()
+    if (results) {
+      res.send(results)
     }
-  }
-}
-
-export const front_getAllItems = async (
-  req: express.Request,
-  res: express.Response
-) => {
-  let conn
-  try {
-    conn = await pool.getConnection()
-
-    const frontEndItems = await conn.query(
-      `SELECT * FROM links WHERE Category='front'`
-    )
-
-    if (frontEndItems.length === 0) {
-      res.sendStatus(404)
-      return conn.end()
-    }
-
-    res.json(frontEndItems)
-    res.sendStatus(200)
-  } catch (err) {
-    return res.sendStatus(400).json({ error: err })
-  } finally {
-    if (conn) {
-      return conn.end()
-    }
+    return
   }
 }
