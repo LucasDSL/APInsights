@@ -7,6 +7,7 @@ export async function getGeneralController(
 ) {
   let results: Object[] = []
   const { id } = req.params
+  return id;
   try {
     if (id) {
       results = await GeneralReposiroty.getOneItem(id)

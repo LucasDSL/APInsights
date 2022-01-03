@@ -13,8 +13,8 @@ class GeneralRepository {
 
   postNewItem(setInsert: string[]) {
     const sql = `INSERT INTO links 
-    (Category, Image_Link, Link, Description) 
-    VALUES (?, ?, ?, ?)`
+    (Title, Category, Description, Image_Link, Link) 
+    VALUES (?, ?, ?, ?, ?)`
     return queries(sql, setInsert)
   }
 }
