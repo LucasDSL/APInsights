@@ -51,6 +51,13 @@ GET https://apinsights.herokuapp.com/insight
 
 Return all items within database, not organized by category but by id, on a increasing order.
 <img src="./examples/example.png" >
+
+```txt
+GET https://apinsights.herokuapp.com/insight/54
+```
+Return item with specified id:
+<img src="./examples/example6.png">
+
 ```txt
 POST https://apinsights.herokuapp.com/insight
 ```
@@ -58,16 +65,20 @@ POST https://apinsights.herokuapp.com/insight
 Allow the user to add a new item to the database. \
 You'll need to use the following body format at the request. \
 The category field can either be: "mix", "front", "back", "design", "mobile". It's important to use one of there since it will be determinant when searching for an item without using the general route /insight.
+
 ```JSON
 {
-	"Category": "front",
-	"Link": "https://www.youtube.com/watch?v=ErjWNvP6mko",
-	"Image_Link": "https://i.ytimg.com/vi/ErjWNvP6mko/maxresdefault.jpg",
-	"Description": "Neste curso ensinarei para você TUDO o que você precisa saber para adquirir uma base sólida no REACT, uma das tecnologias front-end mais populares atualmente!"
+	"Title": "SQL Tutorial - Full Database Course for Beginners",
+	"Category": "back",
+	"Link": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+	"Image_Link": "https://techmirrors.org/wp-content/uploads/2020/08/1596638073_maxresdefault.jpg",
+	"Description": "In this course, we’ll be looking at database management basics and SQL using the MySQL RDBMS. The course is designed for beginners to SQL and database management systems, and will introduce common database management topics. Throughout the course we’ll be looking at various topics including schema design, basic C.R.U.D operations, aggregation, nested queries, joins, keys and much more."
 }
 ```
+
 Make sure to write the fields within json correctly, otherwise you might get this error: \
 <img src="./examples/examples3.png">
+
 ### General Use of All Other Routes
 
 ```txt
@@ -77,12 +88,13 @@ GET https://apinsights.herokuapp.com/insight/:field/:id?
 `field` : Mandatory. Can be either "back-end", "front-end", "design", "mobile" or "mix". \
 `id`: Not Mandatory but if you use you'll be searching for an specific item within that field and with the specified id.
 \
-For instance if we 
+For instance if we
+
 ```txt
-GET https://apinsights.herokuapp.com/insight/back-end/54
+GET https://apinsights.herokuapp.com/insight/front-end/54
 ```
-we recive in return: 
-<img src="./examples/examples4.png">
-\ 
-And if there is no item within field or with that id, we get:
+
+we recive in return:
+<img src="./examples/examples4.png"> \
+And if there is no item within field or with that id, we get: \
 <img src="./examples/examples5.png">
