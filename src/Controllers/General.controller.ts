@@ -34,8 +34,8 @@ export async function postGeneralController(
   res: express.Response
 ) {
   let results: Object[] = []
-  let { Category, Image_Link, Link, Description } = req.body
-  const arrayItems = [Category, Image_Link, Link, Description]
+  let { Title, Category, Image_Link, Link, Description } = req.body
+  const arrayItems = [Title, Category, Description, Image_Link, Link]
 
   arrayItems.forEach(Item => {
     if (typeof Item !== typeof "") {
