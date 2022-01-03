@@ -6,8 +6,14 @@ export async function getGeneralController(
   res: express.Response
 ) {
   let results: Object[] = []
+  const { id } = req.params
   try {
-    results = await GeneralReposiroty.getAllitems()
+    if (id) {
+      results = await GeneralReposiroty.getOneItem(id)
+    } else {
+      results = await GeneralReposiroty.getAllitems()
+    }
+
     if (results.length === 0) {
       res.status(404).send({ error: "No items found, try POSTing a new item!" })
       return

@@ -1,6 +1,11 @@
 import queries from "../Infrastructure/queries"
 
 class GeneralRepository {
+  getOneItem(id: string) {
+    const sql = `SELECT * FROM links WHERE Id=?`
+    return queries(sql, id)
+  }
+
   getAllitems() {
     const sql = `SELECT * FROM links`
     return queries(sql)
