@@ -2,7 +2,7 @@ import queries from "../Infrastructure/queries"
 
 class MobileRepository {
   getAllItems() {
-    const sql = `SELECT * FROM links`
+    const sql = `SELECT * FROM links WHERE Category='mobile'`
     return queries(sql)
   }
 

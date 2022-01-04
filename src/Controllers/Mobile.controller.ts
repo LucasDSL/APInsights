@@ -1,7 +1,7 @@
 import express from "express"
 import MobileRepository from "../Repositories/Mobile.repository"
 
-export default async function MobileController(
+export default async function mobileController(
   req: express.Request,
   res: express.Response
 ) {

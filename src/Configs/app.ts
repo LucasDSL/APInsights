@@ -12,11 +12,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.use(DesignRoutes)
+app.use(MixRoutes)
 app.use(FrontendRoutes)
 app.use(BackendRoutes)
 app.use(MobileRouter)
 app.use(GeneralRoutes)
-app.use(DesignRoutes)
-app.use(MixRoutes)
 
 export default app

@@ -1,6 +1,6 @@
 import express from "express"
-import MobileController from "../Controllers/Mobile.controller"
+import mobileController from "../Controllers/Mobile.controller"
 
 const router = express.Router()
-router.get("/insight/mobile/:id?", MobileController)
+router.get("/insight/mobile/:id?", mobileController)
 export default router

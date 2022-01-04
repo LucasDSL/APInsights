@@ -1,7 +1,7 @@
 import express from "express"
 import MixRepository from "../Repositories/Mix.repository"
 
-export default async function MixController(
+export default async function mixController(
   req: express.Request,
   res: express.Response
 ) {
