@@ -6,7 +6,7 @@ APInsights can be used for getting links and its image and description about con
 
 ### How to run it locally ?
 
-1. You will need git, npm and node.js to run it.
+1. You will need git, mariadb, npm and node.js to run it.
 2. Clone this repository using git and go to the folder
 
 ```git
@@ -14,7 +14,7 @@ git clone https://github.com/LucasDSL/APInsights.git apinsights
 cd apinsights
 ```
 
-3. On this directory, create a ".env" file for the database credentials and fill it like below
+3. On this directory, create a ".env" file for the mariadb credentials and fill it like below
 
 ```txt
 HOST=<host_name>
@@ -55,7 +55,7 @@ Return all items within database, not organized by category but by id, on a incr
 ```txt
 GET https://apinsights.herokuapp.com/insight/54
 ```
-Return item with specified id:
+Return an array with one item with the requested id:
 <img src="./examples/example6.png">
 
 ```txt
@@ -79,6 +79,8 @@ The category field can either be: "mix", "front", "back", "design", "mobile". It
 Make sure to write the fields within json correctly, otherwise you might get this error: \
 <img src="./examples/examples3.png">
 
+If everything is correct you'll receive this message: \
+<img src="./examples/examples31.png">
 ### General Use of All Other Routes
 
 ```txt
@@ -91,10 +93,10 @@ GET https://apinsights.herokuapp.com/insight/:field/:id?
 For instance if we
 
 ```txt
-GET https://apinsights.herokuapp.com/insight/front-end/54
+GET https://apinsights.herokuapp.com/insight/front-end/64
 ```
 
 we recive in return:
-<img src="./examples/examples4.png"> \
+<img src="./examples/example4.png"> \
 And if there is no item within field or with that id, we get: \
 <img src="./examples/examples5.png">
