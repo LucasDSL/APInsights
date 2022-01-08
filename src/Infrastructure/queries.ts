@@ -9,7 +9,7 @@ export default async function queryExecution(
     conn = await pool.getConnection()
     result = await conn.query(query, params)
   } catch (error) {
-    return { error }
+    return error
   } finally {
     if (conn) {
       conn.end()

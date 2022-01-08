@@ -17,6 +17,11 @@ class GeneralRepository {
     VALUES (?, ?, ?, ?, ?)`
     return queries(sql, setInsert)
   }
+
+  deleteItem(idItem: string) {
+    const sql = `DELETE FROM links WHERE Id=?`
+    return queries(sql, idItem)
+  }
 }
 
 export default new GeneralRepository()

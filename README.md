@@ -55,6 +55,7 @@ Return all items within database, not organized by category but by id, on a incr
 ```txt
 GET https://apinsights.herokuapp.com/insight/54
 ```
+
 Return an array with one item with the requested id:
 <img src="./examples/example6.png">
 
@@ -81,6 +82,13 @@ Make sure to write the fields within json correctly, otherwise you might get thi
 
 If everything is correct you'll receive this message: \
 <img src="./examples/examples31.png">
+
+```txt
+DELETE https://apinsights.herokuapp.com/insight/:id
+```
+
+`id`: Mandatory. Delete item with specfied id.
+
 ### General Use of All Other Routes
 
 ```txt

@@ -58,3 +58,26 @@ export async function postGeneralController(
     return
   }
 }
+
+export async function deleteGeneralController(
+  req: express.Request,
+  res: express.Response
+) {
+  let results = []
+  const { id } = req.params
+  try {
+    results = await GeneralReposiroty.deleteItem(id)
+    if (results.affectedRows === 0) {
+      res.status(404).json({ error: "No items with given id found." })
+      return
+    }
+  } catch (err) {
+    res.status(400).json({ err: "No items with given id found" })
+    return
+  } finally {
+    if (results.affectedRows !== 0) {
+      res.status(200).json({ Message: `item with id ${id} deleted` })
+    }
+    return
+  }
+}
